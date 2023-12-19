@@ -22,19 +22,19 @@
                     <?php generateSocial("bg-danger");?>
                     
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <div class="row footer-pages">
                         <div class="col-2">
                             <p class="footer-pages-title1"><strong>Pages</strong></p>
                             <?php generateNavbar($array_navbar_2,"menu2") ?>
                         </div>
-                        <div class="col-5">
+                        <div class="col-6">
                             <p class="footer-pages-title2"><strong>Utility Pages</strong></p>
                             <?php generateNavbar($array_navbar_3,"menu2") ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-5">
                     <p class="footer-pages-title3"><strong>Follow Us On Instagram</strong></p>
                     <?php createImgFooter($imageArray); ?>
                 </div>

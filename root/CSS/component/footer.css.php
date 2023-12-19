@@ -13,7 +13,6 @@
     .footer-content{
         height: 419px;
         width: 80%;
-        /* background-color: aqua; */
     }
    
     .footer-logo p{
@@ -27,20 +26,19 @@
     }
 
     .footer-pages{
-        gap: 100px;
+        gap: 60px;
     }
     
     .footer-pages-title1{
         margin-bottom: 40px;
-        margin-left: -5px;
+        margin-left: -15px;
     }
     .footer-pages-title2{
         margin-bottom: 40px;
-        margin-left: 20px;
+        margin-left: 8px;
     }
     .footer-pages-title3{
         margin-bottom: 40px;
-        /* margin-left: 25px; */
     }
     
     hr{

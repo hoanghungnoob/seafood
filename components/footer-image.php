@@ -8,7 +8,7 @@ function createImgFooter($imageArray) {
     
     // Lặp qua mảng ảnh
     foreach ($imageArray as $image) {
-        echo '<div class="col-md-6">';
+        echo '<div class="col-md-5">';
         echo '<img src="' . $image['src'] . '" alt="' . $image['alt'] . '">';
         echo '</div>';
     }
