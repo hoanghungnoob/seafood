@@ -20,10 +20,10 @@
         ["label" => "Start here", "url" => ""],
         ["label" => "Styleguide", "url" => ""],
         ["label" => "Password Protected", "url" => ""],
-        ["label" => "Pricing", "url" => ""],
-        ["label" => "Blog", "url" => ""],
-        ["label" => "Contact", "url" => ""],
-        ["label" => "Delivery", "url" => ""]
+        ["label" => "404 Not Found", "url" => ""],
+        ["label" => "Licenses", "url" => ""],
+        ["label" => "Changelog", "url" => ""],
+        ["label" => "View More", "url" => ""]
     ];
 
     function generateNavbar($navItems,$class) {

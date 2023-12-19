@@ -45,13 +45,17 @@
     }
 
     nav a:hover {
-        color: #555; /* Màu chữ khi di chuột qua mỗi mục (tùy chọn) */
+        color: #ff0000; /* Màu chữ khi di chuột qua mỗi mục (tùy chọn) */
     }
     .menu2{
         display: flex;
         flex-direction: column;
         gap: 20px;
         align-items: flex-start;
+        
     }
-
+    .menu2 a{
+        color: #ffffff;
+        padding:0;
+    }
 </style>
