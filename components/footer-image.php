@@ -1,5 +1,4 @@
 <?php 
-    include 'linkbootstrap5.php';
     include '../root/CSS/component/footer-image.css.php';
 ?>
 <?php
@@ -20,10 +19,10 @@ function createImgFooter($imageArray) {
 <!-- Sử dụng hàm trong mã HTML -->
 <?php
     $imageArray = [
-        ['src' => '../root/assets/images/photo1.png', 'alt' => 'Image'],
-        ['src' => '../root/assets/images/photo2.png', 'alt' => 'Image'],
-        ['src' => '../root/assets/images/photo3.png', 'alt' => 'Image'],
-        ['src' => '../root/assets/images/photo4.png', 'alt' => 'Image'],
+        ['src' => '../root/assets/images-footer/photo1.png', 'alt' => 'Image'],
+        ['src' => '../root/assets/images-footer/photo2.png', 'alt' => 'Image'],
+        ['src' => '../root/assets/images-footer/photo3.png', 'alt' => 'Image'],
+        ['src' => '../root/assets/images-footer/photo4.png', 'alt' => 'Image'],
     ];
 
     

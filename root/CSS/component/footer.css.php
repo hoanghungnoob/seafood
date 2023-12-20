@@ -26,7 +26,10 @@
     }
 
     .footer-pages{
-        gap: 60px;
+        gap: 80px;
+    }
+    .logo{
+        margin-left: 20%;
     }
     
     .footer-pages-title1{
