@@ -5,12 +5,12 @@
 
 <?php
 
-function createB($params, $class) {
+function createBlogger($params, $class) {
     // Extract parameters from the array or set default values
     $src = isset($params['src']) ? $params['src'] : '';
     $label = isset($params['label']) ? $params['label'] : '';
     $p = isset($params['p']) ? $params['p'] : '';
-    $infor = ("Lorem ipsum dolor sit amet consectetur of a adipiscing elitilmim semper adipiscing massa gravida nisi cras enim quis nibholm varius amet gravida ut facilisis neque egestas.");
+    $infor = isset($params['infor']) ? $params['infor'] : '';
     // Generate HTML code for the card
     $html = '<div class="card '.$class.'">';
     $html .= '<img src="' . $src . '" class="card-img-top" alt="images">';
@@ -47,9 +47,14 @@ $params = array(
     'label' => 'January 12, 2023',
     'p'     => '5 great pizza restaurants you should visit this city'
     ],
+    ['src'   => '../root/assets/images-blogger/photo-biggest.png',
+    'label' => 'January 12, 2023',
+    'p'     => 'The secret tips & tricks to prepare a perfect burger & pizza for our customers',
+    'infor' => 'Lorem ipsum dolor sit amet consectetur of a adipiscing elitilmim semper adipiscing massa gravida nisi cras enim quis nibholm varius amet gravida ut facilisis neque egestas.'
+    ],
 );
 
 // Call the function, and it will automatically echo the result
-// createB($params[0],$class);
+createBlogger($params[4],$class);
 
 ?>
