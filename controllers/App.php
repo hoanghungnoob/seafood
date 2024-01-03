@@ -31,36 +31,24 @@ class App {
         // Handle controller
         if (!empty($urlArr[0])) {
             $this->__controller = $urlArr[0];
-            if (file_exists("controllers/$this->__controller.php")) {
-                require_once "controllers/$this->__controller.php";
-                $this->__controller = new $this->__controller();
+            if (file_exists('controllers/'.$this->__controller.'controller.php')) {
+                
+                require_once 'controllers/'.$this->__controller.'controller.php';
+                // $this->__controller = new $this->__controller();
+                // $this->__controller->index();
             } else {
                 echo '404 Not Found'; // page 404
                 return;
             }
-    
-            // Handle action
-            if (!empty($urlArr[1])) {
-                $this->__action = $urlArr[1];
-            }
-    
-            // Handle params
-            $this->__params = array_slice($urlArr, 2);
-    
-            // Dynamically invoke action
-            if (method_exists($this->__controller, $this->__action)) {
-                call_user_func_array([$this->__controller, $this->__action], $this->__params);
-            } else {
-                echo '404 Not Found'; // page 404
-            }
+            // handle action param
         } else {
             // page default 
             global $routes;
             $this->__controller = $routes['default_controller'];
             
-            require_once "controllers/$this->__controller.php";
-            $this->__controller = new $this->__controller();
-            $this->__controller->index();
+            require_once "controllers/homecontroller.php";
+            // $this->__controller = new $this->__controller();
+            // $this->__controller->index();
         }
     }
     

@@ -53,7 +53,7 @@
                 </div>
                 <div class="row pb-2">
                     <label for="email" class="form-label custom-label" style="margin-left: 12px;">Email</label>
-                    <input type="email" class="form-control rounded-pill" id="email" placeholder="Enter your email">
+                    <input type="email" class="form-control rounded-pill" name="email" id="email" placeholder="Enter your email">
                 </div>
                 <div class="row p-1"></div>
                 <div class="row d-flex flex-column align-items-center justify-content-center text-center">

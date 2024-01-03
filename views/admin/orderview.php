@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>YummyFood Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <?php include "../components/linkbootstrap5.php"; ?>
-    <link rel="stylesheet" href="../root/CSS/admin/style.css">
-
+    <?php include "../../components/linkbootstrap5.php"; ?>
+    <link rel="stylesheet" href="../../root/CSS/admin/style.css">
+    <link rel="stylesheet" href="../../root/CSS/admin/order.css">
 </head>
 
 <body>
     <div class="container-scroller">
-
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -36,9 +35,7 @@
                             </clipPath>
                         </defs>
                     </svg>
-
                     YUMMY FOOD</a>
-
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -48,7 +45,7 @@
                     <form class="d-flex align-items-center h-100" action="#">
                         <div class="input-group">
                             <div class="input-group-prepend bg-transparent">
-                            <i class="fa fa-search" aria-hidden="true"></i>
+                                <i class="fa fa-search" aria-hidden="true"></i>
                             </div>
                             <input type="text" class="form-control bg-transparent border-0"
                                 placeholder="Search projects">
@@ -60,7 +57,7 @@
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../root/assets/images-food/food1.png" alt="image">
+                                <img src="../../root/assets/images-food/food1.png" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -69,7 +66,7 @@
                         </a>
                     </li>
                     <li class="nav-item d-none d-lg-block full-screen-link">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="../../controllers/homecontroller">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -151,7 +148,7 @@
                 <ul class="nav">
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
-                           
+
                             <div class="nav-profile-text d-flex flex-column">
                                 <span class="font-weight-bold mb-2">Admin</span>
                                 <span class="text-secondary text-small">PHP Project Manage</span>
@@ -173,18 +170,12 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" 
-                                        href="">Table</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="">Orders</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="">Dish</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="">Book table</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="">User</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="">Order detail</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="">Table</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#" id="taget_self">Orders</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="">Dish</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="">Book table</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="">User</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="">Order detail</a></li>
                             </ul>
                         </div>
                     </li>
@@ -228,89 +219,181 @@
                             </ul>
                         </div>
                     </li>
-                 
                 </ul>
             </nav>
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white me-2">
-                            </span> Dashboard
-                        </h3>
-                        <nav aria-label="breadcrumb">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <span></span>Overview <i
-                                        class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                                </li>
-                            </ul>
-                        </nav>
+                    <div class="content-header">
+                        <button id="add-new-order" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" >Add new</button>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-danger card-img-holder text-white">
-                                <div class="card-body">
-                                    
-                                    <h4 class="font-weight-normal mb-3">Weekly Sales <i
-                                            class="mdi mdi-chart-line mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">$ 15,0000</h2>
-                                    <h6 class="card-text">Increased by 60%</h6>
+                    <div class="content-body">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name Customer</th>
+                                    <th>Date order</th>
+                                    <th>Status</th>
+                                    <th>Discount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include_once '../../models/admin/ordermodel.php';
+                                $od = new Ordermodel();
+                                $data = $od->fetchAll();
+                                echo '<pre>;';
+                                print_r($data);
+                                echo '</pre>';
+                                foreach ($data as $row): ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $row['order_id']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['Username']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['order_date']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['status']; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['discount']; ?>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
+                                                id="openModal" data-id="<?= $row['order_id']; ?>"
+                                                onclick="console.log('click', this.getAttribute('data-id'))">
+                                                Update
+                                            </button>
+
+
+                                            <button type="button" onclick="deleteRow(<?php echo $row['order_id']; ?>)"
+                                                class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php $dataone = $od->fetchOne(1);
+                    ?>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Orders</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-info card-img-holder text-white">
-                                <div class="card-body">
-                                    <h4 class="font-weight-normal mb-3">Weekly Orders <i
-                                            class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">45,6334</h2>
-                                    <h6 class="card-text">Decreased by 10%</h6>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="">
+                                            <label for="modalOrderId" class="col-form-label">ID:</label>
+                                            <input type="text" class="form-control" id="modalOrderId"
+                                                value="<?php echo $dataone[0]['order_id']; ?>" readonly>
+                                        </div>
+                                        <div class="">
+                                            <label for="modalUsername" class="col-form-label">Name:</label>
+                                            <input type="text" class="form-control" id="modalUsername"
+                                                value="<?php echo $dataone[0]['Username']; ?>">
+                                        </div>
+                                        <div class="">
+                                            <label for="modalOrderDate" class="col-form-label">Order
+                                                Date:</label>
+                                            <input type="date" class="form-control" id="modalOrderDate"
+                                                value="<?php echo $dataone[0]['order_date']; ?>" readonly>
+                                        </div>
+                                        <div class="">
+                                            <label for="modalStatus" class="col-form-label">Status:</label>
+                                            <select class="form-select" id="modalStatus">
+                                                <option value=" <?php echo $dataone[0]['status']; ?>">
+                                                    <?php echo $dataone[0]['status']; ?>
+                                                </option>
+                                                <option value="pending">Pending</option>
+                                                <option value="completed">Completed</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="">
+                                            <label for="modalOrderDate" class="col-form-label">Delivery
+                                                Date:</label>
+                                            <input type="datetime-local" class="form-control" id="modalOrderDate">
+                                        </div>
+                                        <div class="">
+                                            <label for="modalDiscount" class="col-form-label">Discount:</label>
+                                            <input type="text" class="form-control" id="modalDiscount"
+                                                value="<?php echo $row['discount']; ?>">
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 stretch-card grid-margin">
-                            <div class="card bg-gradient-success card-img-holder text-white">
-                                <div class="card-body">
-                                    
-                                    <h4 class="font-weight-normal mb-3">Visitors Online <i
-                                            class="mdi mdi-diamond mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">95,5741</h2>
-                                    <h6 class="card-text">Increased by 5%</h6>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-7 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="clearfix">
-                                        <h4 class="card-title float-left">Google Analytics</h4>
-                                        <div id="visit-sale-chart-legend"
-                                            class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                                    </div>
-                                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Form Modal</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Traffic Sources</h4>
-                                    <canvas id="traffic-chart"></canvas>
-                                    <div id="traffic-chart-legend"
-                                        class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                                <div class="modal-body">
+                                    <!-- Your form goes here -->
+                                    <form method="get" >
+                                        <div class="">
+                                            <label for="newModalUsername" class="col-form-label">Name:</label>
+                                            <input type="text" class="form-control" id="newModalUsername"  name="username"
+                                                placeholder="Enter Name">
+                                        </div>
+                                        <div class="">
+                                            <label for="newModalOrderDate" class="col-form-label">Order Date:</label>
+                                            <input type="date" class="form-control" id="newModalOrderDate" name="orderdate" >
+                                        </div>
+                                        <div class="">
+                                            <label for="newModalStatus" class="col-form-label">Status:</label>
+                                            <select class="form-select" id="newModalStatus" name="status" >
+                                                <option value="pending">Pending</option>
+                                                <option value="completed">Completed</option>
+                                            </select>
+                                        </div>
+                                        <div class="">
+                                            <label for="newModalDeliveryDate" class="col-form-label">Delivery
+                                                Date:</label>
+                                            <input type="datetime-local" class="form-control" id="newModalDeliveryDate" name="deliverydate" >
+                                        </div>
+                                        <div class="">
+                                            <label for="newModalDiscount" class="col-form-label">Discount:</label>
+                                            <input type="text" class="form-control" id="newModalDiscount"
+                                                placeholder="Enter Discount" name="discount" >
+                                        </div>
+                                        <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
                                 </div>
+                                    </form>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
-                   
                 </div>
+               
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
@@ -320,7 +403,10 @@
             </div>
         </div>
     </div>
-
 </body>
+<script>
+
+
+</script>
 
 </html>
