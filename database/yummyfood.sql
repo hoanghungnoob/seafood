@@ -1,8 +1,7 @@
-create database yummyfood;
-go
+-- create database yummyfood;
+-- go
 use yummyfood;
-go
-
+-- go
 
 -- Create the User table
 CREATE TABLE IF NOT EXISTS Users (
@@ -19,18 +18,18 @@ CREATE TABLE IF NOT EXISTS Users (
 CREATE TABLE IF NOT EXISTS `Table` (
     table_id INT AUTO_INCREMENT PRIMARY KEY,
     Tablename VARCHAR(255) NOT NULL,
-    `Number of chair` INT,
+    numberchair INT,
     status VARCHAR(50)
 );
 
 -- Create the Dish table
 CREATE TABLE IF NOT EXISTS Dish (
-    Dish_id INT AUTO_INCREMENT PRIMARY KEY,
-    Disk_name VARCHAR(255) NOT NULL,
+    dish_id INT AUTO_INCREMENT PRIMARY KEY,
+    Dish_name VARCHAR(255) NOT NULL,
+    Image_dish VARCHAR(50) NOT NULL,
     Detail TEXT,
-    price DECIMAL(10, 2)
+    Price DECIMAL(10, 2) NOT NULL default 0,
 );
-
 -- Create the Booktable table
 CREATE TABLE IF NOT EXISTS Booktable (
     Book_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -40,7 +39,6 @@ CREATE TABLE IF NOT EXISTS Booktable (
     FOREIGN KEY (User_id) REFERENCES Users(user_id),
     FOREIGN KEY (Table_id) REFERENCES `Table`(table_id)
 );
-
 -- Create the Orders table
 -- Create the updated Orders table
 CREATE TABLE IF NOT EXISTS Orders (
@@ -65,5 +63,23 @@ CREATE TABLE IF NOT EXISTS Order_detail (
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (dish_id) REFERENCES Dish(Dish_id)
 );
+
+CREATE TABLE IF NOT EXISTS contacts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    subject VARCHAR(255),
+    message TEXT
+);
+
+
+-- Thêm dữ liệu mẫu vào bảng contacts
+INSERT INTO contacts (name, email, subject, message) VALUES
+('Nguyen Van A', 'nguyenvana@example.com', 'Question 1', 'This is the first message.'),
+('Tran Thi B', 'tranthib@example.com', 'Feedback', 'Thank you for your service.'),
+('Le Van C', 'levanc@example.com', 'Inquiry', 'I would like to inquire about your products.');
+
+-- Bạn có thể thêm nhiều bản ghi khác nếu cần thiết.
+
 
 

@@ -4,7 +4,7 @@
         ["label" => "Home", "url" => "home"],
         ["label" => "About", "url" => "about"],
         ["label" => "Menu", "url" => "menu"],
-        ["label" => "Book", "url" => "book"],
+        ["label" => "Book", "url" => "booktable"],
         ["label" => "Pages", "url" => "blog"],
         ["label" => "Contact", "url" => "contact"],
     ];
