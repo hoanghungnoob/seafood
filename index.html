@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Embed PHP File</title>
 </head>
 <body>
-    test deployment
+
+<div id="phpContent"></div>
+
+<script>
+    // Sử dụng XMLHttpRequest để tải nội dung từ file PHP
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Nếu tải thành công, chèn nội dung vào phần tử có id là "phpContent"
+            document.getElementById("phpContent").innerHTML = this.responseText;
+        }
+    };
+    xhr.open("GET", "./index.php", true);
+    xhr.send();
+</script>
+
 </body>
 </html>
