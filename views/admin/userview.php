@@ -148,7 +148,7 @@
             </div>
         </nav>
         <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
+        <div class=" page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
@@ -306,8 +306,8 @@
           <div class="form-group">
             <label for="role">Role:</label>
             <select class="form-control" id="role" name="role">
-                <option value="User">customer</option>
-                <option value="Admin">admin</option>
+                <option value="customer">customer</option>
+                <option value="admin">admin</option>
             </select>
           </div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddNewModal()">Close</button>
@@ -435,7 +435,7 @@
 
 
                 <footer class="footer">
-                    <div class="container-fluid d-flex justify-content-center">
+                    <div class=" d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright ©
                             bootstrapdash.com 2021</span>
                     </div>

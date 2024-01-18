@@ -71,6 +71,9 @@ $isLoggedIn = isset($_SESSION['user']);
             echo '</a>';
             echo '<ul class="dropdown-menu" id="dropdown-menu">';
             echo '<li><a class="dropdown-item" href="logout" id="logout">Log out</a></li>';
+            if(isset($_SESSION['user']['role'])=='admin'){
+                echo '<li><a class="dropdown-item" href="admin" id="admin">admin</a></li>';
+            }
             echo '</ul>';
             echo '</div>';
         } else {

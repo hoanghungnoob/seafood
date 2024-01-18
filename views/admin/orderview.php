@@ -315,16 +315,6 @@
                                                 value="<?php echo $dataone[0]['order_date']; ?>"  readonly
                                                 name="orderdate">
                                         </div>
-                                        <div class="">
-                                            <label for="modalStatus" class="col-form-label">Status:</label>
-                                            <select class="form-select" id="modalStatus" name="status">
-                                                <option value=" <?php echo $dataone[0]['status']; ?>">
-                                                    <?php echo $dataone[0]['status']; ?>
-                                                </option>
-                                                <option value="pending">Pending</option>
-                                                <option value="completed">Completed</option>
-                                            </select>
-                                        </div>
 
                                         <div class="row">
                                             <div class="col-md-6">
@@ -502,7 +492,12 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <input type="text" id="address" name="address" >
+                                            </div>
+                                        </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"

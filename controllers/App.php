@@ -34,24 +34,24 @@ class App {
             '/blog' => 'blogcontroller.php',
             '/shopping' => 'shoppingcartcontroller.php',
             '/order' => 'ordercontroller.php',
+            '/thankyou' => 'thankyoucontroller.php',
             '/contact' => 'contactcontroller.php',
-            '/admin' => 'admincontroller.php',
             '/login' => 'logincontroller.php',
             '/logout' => 'logoutcontroller.php',
             '/register' => 'registercontroller.php',
+            '/admin' => 'admincontroller.php',
             '/admin/order' => 'admin/ordercontroller.php',
             '/admin/table' => 'admin/tablecontroller.php',
             '/admin/booktable' => 'admin/booktablecontroller.php',
             '/admin/dish' => 'admin/dishcontroller.php',
             '/admin/orderdetail' => 'admin/orderdetailcontroller.php',
             '/admin/user' => 'admin/usercontroller.php',
+            '/viewcart'=> '',
         ];
     
         foreach ($routes as $route => $controllerFile) {
             if ($route == $url) {
                 require_once 'controllers/' . $controllerFile;
-                // $controllerClass =(str_replace('controller.php', '', basename($controllerFile))) . 'controller';
-                // $controller = new $controllerClass();
                 break;
             }
         }

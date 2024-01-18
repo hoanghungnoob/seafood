@@ -13,4 +13,5 @@ if(isset($_SESSION['user'])) {
     // User không tồn tại trong session
     echo "User chưa đăng nhập";
 }
+
 ?>
